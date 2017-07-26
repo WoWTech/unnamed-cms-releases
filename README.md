@@ -31,9 +31,9 @@ After configuring first connection, you need to edit config details for other 3 
 DONE. If you have any trouble with installing, configuring or using CMS, please create an [Issue](https://github.com/WoWTech/unnamed-cms-releases/issues/new)
 
 ### Setup Administrator user
-By default, every user gets ```user``` role. One user can have many roles. For example, administrator is a user, that has ```user```, ```moderator``` and ```administrator``` roles attached. 
+By default, every registered user gets ```user``` role. One user can have many roles. For example, administrator is a user, that has ```user```, ```moderator``` and ```administrator``` roles attached. 
 
-Currently, we don't have any automatic setup for FIRST administrator account, so to setup first site administrator, you need manually edit database (you need to use software like HeidiSQL or other to view and edit database):
+Currently, we don't have any automatic setup for FIRST administrator account, so to setup first site administrator account, you need manually edit database (you need to use software like HeidiSQL or other to view and edit database):
 
 1) Register user using ```Register``` button or http://localhost/register link.
 
@@ -48,3 +48,5 @@ Currently, we don't have any automatic setup for FIRST administrator account, so
 | 1             | (created account ID) | App\Account |
 
 If you completed all this steaps above successfully, you should see red ```Control panel``` button in the sidebar (right side of the screen). As long as you already have the user with ```administrator``` role, you can change roles for other users in the admin panel, which is available at the http://localhost/admin . Or you can access it by clicking the red ```Control panel``` button.
+
+**NOTE:** After assigning roles through the database, you need to re login.
