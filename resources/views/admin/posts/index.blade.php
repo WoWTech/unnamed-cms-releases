@@ -29,7 +29,7 @@
             <td>{{ $post->account->username }}</td>
             <td>{{ $post->created_at->toFormattedDateString() }}</td>
             <td>
-              @permission('edit-post')
+              @permission('update-post')
                 <a href="{{ route('admin.posts.edit', $post) }}">Edit</a>
               @endpermission
               @permission('delete-post')

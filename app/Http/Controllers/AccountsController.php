@@ -57,7 +57,9 @@ class AccountsController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        Account::create(request()->all());
+        $account = Account::create(request()->all());
+
+        $account->attachRole('user');
 
         return redirect()->route('admin.accounts.index');
     }

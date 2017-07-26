@@ -1,27 +1,27 @@
 let timer;
 let timerInterval = 100;
-let username_input = $('#username');
+let username_autocomplete = $('#username-autocomplete');
 
-username_input.keyup(function(){
+username_autocomplete.keyup(function(){
     clearTimeout(timer);
     timer = setTimeout(getUsers, timerInterval);
 });
 
-username_input.keydown(function(){
+username_autocomplete.keydown(function(){
     clearTimeout(timer);
 });
 
 $("body").on('click', 'ul#ajax-users-list li', (e) => {
     $("#acc").val($(e.target).data('id'));
-    $("#username").val($(e.target).data('username'));
+    $("#username-autocomplete").val($(e.target).data('username'));
     $('ul#ajax-users-list').remove();
 });
 
-$("#username").blur(() => {
+username_autocomplete.blur(() => {
     setTimeout(() => {$('ul#ajax-users-list').hide()}, 200);
 });
 
-$("#username").focus(() => {
+username_autocomplete.focus(() => {
     $('ul#ajax-users-list').show();
 });
 
@@ -35,17 +35,17 @@ let showUsers = data =>
     });
     list += "</ul>";
 
-    username_input.after(list);
+    username_autocomplete.after(list);
 }
 
 let getUsers = () =>
 {
-    if (username_input.val().length < 3)
+    if (username_autocomplete.val().length < 3)
       return;
 
     $.post("/admin/getusers",
     {
-        username: username_input.val(),
+        username: username_autocomplete.val(),
         _token: $("meta[name='_token']").attr('content')
     }, showUsers);
 }

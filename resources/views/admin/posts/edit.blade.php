@@ -9,7 +9,7 @@
     <form action="{{ route('admin.posts.update', $post) }}" method="POST">
 
       @include('layouts.input_errors')
-      
+
       {{ csrf_field() }}
       {{ method_field('PATCH') }}
       <div class="input-group">
@@ -22,7 +22,7 @@
       </div>
       <div class="input-group">
         <label for="author">Post author</label>
-        <input id="username" type="text" name="username" value="{{ $post->account->username }}" required>
+        <input id="username-autocomplete" type="text" name="username" value="{{ $post->account->username }}" required>
         <input id="acc" type="hidden" name="account_id" value="{{ $post->account->id }}" required>
       </div>
       <div class="input-group">
