@@ -24,7 +24,7 @@ After configuring first connection, you need to edit config details for other 3 
       ]
     )
 ```
-**3)** Create database with the name you specified in ```.env``` file ```DB_DATABASE``` option (database name is ```laravel``` in this example above). Import ```sql\database.sql``` into the this database.
+**3)** Create database with the name you specified in ```.env``` file ```DB_DATABASE``` option (database name is ```laravel``` in this example above). Import ```sql\database.sql``` into this database.
 
 **4)** Set your ```Apache```, ```WampServer``` or ```OpenServer``` site directory to ```public``` folder.
 
@@ -39,7 +39,7 @@ Currently, we don't have any automatic setup for FIRST administrator account, so
 
 2) Open the database, that you created in the 3rd step of installation instructions above (in this example it's called ```laravel```).
 
-2) Open ```account_role``` table and add 2 new lines (normally, when you registered new user, first record in this table must already persisted in your database, so you can use it as a template, and only change ```role_id``` column)
+3) Open ```account_role``` table and add 2 new lines (normally, when you registered new user, first record in this table must already persisted in your database, so you can use it as a template, and only change ```role_id``` column)
 
 | role_id       | account_id           | user_type   |
 | ------------- |:--------------------:| -----------:|
@@ -47,6 +47,6 @@ Currently, we don't have any automatic setup for FIRST administrator account, so
 | 2             | (created account ID) | App\Account |
 | 1             | (created account ID) | App\Account |
 
-If you completed all this steaps above successfully, you should see red ```Control panel``` button in the sidebar (right side of the screen). As long as you already have the user with ```administrator``` role, you can change roles for other users in the admin panel, which is available at the http://localhost/admin . Or you can access it by clicking the red ```Control panel``` button.
+If you completed all this steps above successfully, you should see red ```Control panel``` button in the sidebar (right side of the screen). As long as you already have the user with ```administrator``` role, you can change roles for other users in the admin panel, which is available at the http://localhost/admin . Or you can access it by clicking the red ```Control panel``` button.
 
 **NOTE:** After assigning roles through the database, you need to re login.
