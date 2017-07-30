@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `account_permission`;
 CREATE TABLE IF NOT EXISTS `account_permission` (
   `permission_id` int(10) unsigned NOT NULL,
   `account_id` int(10) unsigned NOT NULL,
-  `user_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_type` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`account_id`,`permission_id`,`user_type`),
   KEY `account_permission_permission_id_foreign` (`permission_id`),
   CONSTRAINT `account_permission_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `account_role`;
 CREATE TABLE IF NOT EXISTS `account_role` (
   `role_id` int(10) unsigned NOT NULL,
   `account_id` int(10) unsigned NOT NULL,
-  `user_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_type` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`account_id`,`role_id`,`user_type`),
   KEY `account_role_role_id_foreign` (`role_id`),
   CONSTRAINT `account_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -52,7 +52,7 @@ DELETE FROM `comments`;
 DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -70,7 +70,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -160,7 +160,7 @@ DELETE FROM `posts`;
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
