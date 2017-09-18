@@ -1,4 +1,12 @@
 @font-face {
+  font-family: "SN";
+  src:url("./segoeui.ttf");
+}
+@font-face {
+  font-family: "SB";
+  src:url("./seguisb.ttf");
+}
+@font-face {
   font-family: "SL";
   src:url("./segoeuil.ttf");
 }

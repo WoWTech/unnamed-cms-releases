@@ -69,19 +69,28 @@ class Server
 
     private static function getServerUptime()
     {
-        $uptime = DB::connection('auth')->table('uptime')->orderBy('starttime', 'desc')->limit(1)->get(['uptime'])->first()->uptime;
-        $sec = $uptime%60;
+        $uptime = DB::connection('auth')->table('uptime')->orderBy('starttime', 'desc')->limit(1)->get(['uptime']);
 
-        $uptime = intval($uptime/60);
-        $min = $uptime%60;
+        if ($uptime->isEmpty())
+            $uptime_object = (object) array('days' => 0, 'hours' => 0, 'minutes' => 0, 'seconds' => 0);
+        else
+        {
+            $uptime = $uptime->first()->uptime;
+            $sec = $uptime%60;
 
-        $uptime = intval($uptime/60);
-        $hours = $uptime%24;
+            $uptime = intval($uptime/60);
+            $min = $uptime%60;
 
-        $uptime = intval($uptime/24);
-        $days = $uptime;
+            $uptime = intval($uptime/60);
+            $hours = $uptime%24;
 
-        return (object) array('days' => $days, 'hours' => $hours, 'minutes' => $min, 'seconds' => $sec);
+            $uptime = intval($uptime/24);
+            $days = $uptime;
+
+            $uptime_object = (object) array('days' => $days, 'hours' => $hours, 'minutes' => $min, 'seconds' => $sec);
+        }
+
+        return $uptime_object;
     }
 
     private static function extractFaction($race)
