@@ -51,6 +51,7 @@
 
             <div class="server-buttons">
                 <a href="{{ route('register') }}">Registration</a>
+                <a href="{{ route('forum') }}">Forum</a>
                 <a href="{{ route('online') }}">Statistic</a>
             </div>
         </div>
