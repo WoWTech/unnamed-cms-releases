@@ -62,8 +62,8 @@ class TopicsController extends Controller
 
     public function show($category, Topic $topic)
     {
-        if (!Laratrust::can('view-forum-topic'))
-            return abort(403);
+        // if (!Laratrust::can('view-forum-topic'))
+        //     return abort(403);
 
         $replies = $topic->replies()->simplePaginate(10);
 
