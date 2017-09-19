@@ -17,9 +17,9 @@
   <div class="logo"></div>
 
   <nav>
-    <a href="#">Home</a>
+    <a href="/">Home</a>
     <a href="#">User panel</a>
-    <a href="#">Players Online</a>
+    <a href="{{ route('online') }}">Players Online</a>
     <div class="user-bar">
       @if (Auth::check())
         {{ Auth::user()->username }}
